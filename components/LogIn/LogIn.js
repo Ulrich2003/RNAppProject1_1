@@ -1,12 +1,35 @@
 import React from 'react';
+import Toast from 'react-native-toast-message';
 
-import {StyleSheet, Text, View, TextInput, Button, Alert} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  Button,
+  Alert,
+  TouchableOpacity,
+} from 'react-native';
 
 const LogIn = () => {
-  const [accountNumber, onChangeAccountNumber] = React.useState(
-    'Phone number, username or email',
-  );
-  const [password, onChangePassword] = React.useState('Password');
+  const [accountNumber, onChangeAccountNumber] = React.useState('');
+  const [password, onChangePassword] = React.useState('');
+  function getAccount() {
+    console.log(accountNumber);
+  }
+  function login() {
+    if (accountNumber.length === 0 || password.length === 0) return;
+    if (accountNumber === 'chuanyangme@gmail.com' && password === '123456') {
+      console.log('success');
+    } else {
+      console.log(111);
+      Toast.show({
+        type: 'success',
+        text1: 'Hello',
+        text2: 'This is some something 👋',
+      });
+    }
+  }
   return (
     <View>
       <View style={styles.body}>
@@ -17,11 +40,15 @@ const LogIn = () => {
           <TextInput
             style={styles.inputBox}
             onChangeText={text => onChangeAccountNumber(text)}
+            placeholder="Phone number, username or email"
+            onBlur={getAccount}
             value={accountNumber}
           />
           <TextInput
             style={styles.inputBox}
             onChangeText={text => onChangePassword(text)}
+            placeholder="Password"
+            textContentType="password"
             value={password}
           />
         </View>
@@ -31,9 +58,19 @@ const LogIn = () => {
         </View>
 
         <View style={styles.centerBox}>
-          <View style={styles.logInButton}>
+          <TouchableOpacity
+            activeOpacity={0.5}
+            onPress={() => login()}
+            // onPressIn={() => this.activeEvent('按下')}
+            // onPressOut={() => this.activeEvent('抬起')}
+            // onLongPress={() => this.activeEvent('长按')}
+            style={
+              accountNumber.length !== 0 && password.length !== 0
+                ? styles.logInButtonActive
+                : styles.logInButtonDisable
+            }>
             <Text style={styles.logInButtonText}>Log In</Text>
-          </View>
+          </TouchableOpacity>
         </View>
       </View>
 
@@ -92,8 +129,7 @@ const styles = StyleSheet.create({
     color: '#0090f4',
     fontWeight: 'bold',
   },
-  logInButton: {
-    backgroundColor: '#78c8f9',
+  logInButtonDisable: {
     width: '90%',
     display: 'flex',
     justifyContent: 'center',
@@ -102,6 +138,18 @@ const styles = StyleSheet.create({
     paddingBottom: 14,
     borderRadius: 7,
     marginTop: 25,
+    backgroundColor: '#78c8f9',
+  },
+  logInButtonActive: {
+    width: '90%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingTop: 14,
+    paddingBottom: 14,
+    borderRadius: 7,
+    marginTop: 25,
+    backgroundColor: '#0196f5',
   },
   logInButtonText: {
     color: 'white',
