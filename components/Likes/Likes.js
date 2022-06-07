@@ -59,7 +59,7 @@ const Likes = props => {
     },
   ]);
   return (
-    <View>
+    <View style={styles.page}>
       <Text style={styles.header}>Activity</Text>
       <ScrollView>
         <Text style={styles.littleTitle}>New</Text>
@@ -93,5 +93,9 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     marginLeft: 13,
     paddingBottom: 12,
+  },
+  page: {
+    backgroundColor: '#fff',
+    height: '100%',
   },
 });

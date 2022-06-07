@@ -11,7 +11,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-const LogIn = () => {
+const LogIn = ({navigation}) => {
   const [accountNumber, onChangeAccountNumber] = React.useState('');
   const [password, onChangePassword] = React.useState('');
   function getAccount() {
@@ -19,19 +19,24 @@ const LogIn = () => {
   }
   function login() {
     if (accountNumber.length === 0 || password.length === 0) return;
-    if (accountNumber === 'chuanyangme@gmail.com' && password === '123456') {
-      console.log('success');
-    } else {
-      console.log(111);
+    if (accountNumber === 'Admin' && password === '123456') {
       Toast.show({
         type: 'success',
-        text1: 'Hello',
-        text2: 'This is some something 👋',
+        text1: 'Success',
+        text2: 'Login successful ✅',
+        visibilityTime: 1500,
+      });
+      navigation.navigate('tabNav');
+    } else {
+      Toast.show({
+        type: 'error',
+        text1: 'Error',
+        text2: 'The username or password is incorrect 👋',
       });
     }
   }
   return (
-    <View>
+    <View style={styles.page}>
       <View style={styles.body}>
         <View style={styles.centerBox}>
           <View style={styles.bannerBox}>
@@ -175,5 +180,8 @@ const styles = StyleSheet.create({
   signUpBoxbtn: {
     color: '#008df5',
     fontWeight: 'bold',
+  },
+  page: {
+    backgroundColor: '#fff',
   },
 });

@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
   },
   body: {
     paddingBottom: 8,
-    borderBottomColor: '#dadadb',
+    borderBottomColor: '#dadadb80',
     borderStyle: 'solid',
     borderBottomWidth: 1,
     display: 'flex',

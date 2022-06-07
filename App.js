@@ -1,4 +1,6 @@
-import React from 'react';
+import * as React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import StartPage from './components/StartPage/StartPage';
 import {StyleSheet, useColorScheme, View} from 'react-native';
 
@@ -8,6 +10,9 @@ import Index from './components/Index/Index';
 import Likes from './components/Likes/Likes';
 import Search from './components/Search/Search';
 import Toast from 'react-native-toast-message';
+import TabNav from './components/TabNav/TabNav';
+
+const Stack = createNativeStackNavigator();
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -15,11 +20,21 @@ const App = () => {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
   return (
-    <View>
-      {/* <Likes /> */}
-      <LogIn />
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="login"
+          component={LogIn}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="tabNav"
+          component={TabNav}
+          options={{headerShown: false}}
+        />
+      </Stack.Navigator>
       <Toast />
-    </View>
+    </NavigationContainer>
   );
   // return <StartPage />;
   // return <LogIn />;

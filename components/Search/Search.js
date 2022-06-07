@@ -15,7 +15,7 @@ import {
 const Search = () => {
   const [accountNumber, onChangeAccountNumber] = React.useState('Search');
   return (
-    <View>
+    <View style={styles.page}>
       <View style={styles.header}>
         <View style={styles.searchBox}>
           <TextInput
@@ -136,6 +136,48 @@ const Search = () => {
               uri: 'https://images.unsplash.com/photo-1507692049790-de58290a4334?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGNodXJjaHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=900&q=60',
             }}
           />
+          {/* 第16张图片 */}
+          <Image
+            style={styles.smallImg}
+            source={{
+              uri: 'https://images.unsplash.com/photo-1557130641-1b14718f096a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1926&q=80',
+            }}
+          />
+          {/* 第17张图片 */}
+          <Image
+            style={styles.smallImg}
+            source={{
+              uri: 'https://images.unsplash.com/photo-1614361920447-43549220bbb7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1364&q=80',
+            }}
+          />
+          {/* 第18张图片 */}
+          <Image
+            style={styles.smallImg}
+            source={{
+              uri: 'https://images.unsplash.com/photo-1649207668483-f15d5995b47f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+            }}
+          />
+          {/* 第19张图片 */}
+          <Image
+            style={styles.smallImg}
+            source={{
+              uri: 'https://images.unsplash.com/photo-1633421770869-d88e43ff9684?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=927&q=80',
+            }}
+          />
+          {/* 第20张图片 */}
+          <Image
+            style={styles.smallImg}
+            source={{
+              uri: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80',
+            }}
+          />
+          {/* 第21张图片 */}
+          <Image
+            style={styles.smallImg}
+            source={{
+              uri: 'https://images.unsplash.com/photo-1639416292376-695d1f7fb53b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80',
+            }}
+          />
         </View>
       </ScrollView>
     </View>
@@ -188,5 +230,8 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     marginBottom: 110,
+  },
+  page: {
+    backgroundColor: '#fff',
   },
 });
